@@ -1,0 +1,71 @@
+---
+title: Nginx 服务器 http 301重定向到 https 的问题
+tags: [Nginx, GitHub Pages, GitHub]
+categories: [服务器]
+comments: true
+mathjax: false
+date: 2018-07-04 21:13:28
+---
+最近，将自己的GitHub Pages个人站点加了个绿锁头，即https，然后好好的nginx做的域名重定向服务就失效了。感觉是改了https的锅。记录一下实验过程。  
+
+<!-- more -->
+
+# 问题
+突然出了问题，自己的个人站点在GitHub Pages设置里面勾选了enforce https之后，nginx服务器就重定向不到了。报错。不知道是什么原因排查一下。  
+
+# 检测nginx服务器可达
+首先确认nginx服务器能够正常工作。  
+我已经将www.yunhao.life和yunhao.life和blog.yunhao.life和blog.yunhao.space这四个域名DNS解析到了服务器地址。  
+然后，找到nginx的目录。然后新建一个文件  
+```
+cd /etc/nginx/sites-available
+vim 301.conf
+```
+在文件中输入以下内容：  
+```
+server {
+	server_name ~((blog|www)\.)?yunhao\.(space|life);
+	location / {
+		root /var/www/html;
+		index info.html;
+	}
+}
+```
+其中server_name是用正则表达式匹配的。然后再site-enabled目录中添加软连接。然后重启一下nginx服务器  
+```
+cd /etc/nginx/sites-enabled
+ln -s /etc/nginx/sites-available/301.conf redirection
+systemctl restart nginx.service
+```
+然后去`/ver/www/html`目录下新建一个info.html。里面随便写点儿内容。  
+然后去浏览器里测试一下，那四个地址，能不能显示info.html里面的内容。正常的话是可以的，记得清浏览器缓存  
+
+# 检测GitHub Pages站点可达
+确认GitHub Pages的站点是否能正常访问。  
+我在GitHub上新建了一个仓库，叫test，然后将仓库克隆到本地，然后新建`CNAME`文件。然后在CNAME中写`test.yunhao.space`，然后再新建一个index.html，里面随便写内容  
+然后DNS解析新建一个记录，`test.yunhao.space`，记录值为`lmnsyunhao.github.io`  
+然后将仓库推到github上master分支，在仓库的设置里面找到GitHub Pages这个选项，Source选master，保存。  
+访问一下`test.yunhao.space`，看看能不能访问。  
+
+# nginx服务器http重定向到http
+去nginx服务器`301.conf`配置文件里改一下  
+```
+cd /etc/nginx/sites-available
+vim 301.conf
+```
+改成下面这样：  
+```
+server {
+	server_name ~((blog|www)\.)?yunhao\.(space|life);
+	rewrite ^(.*)$ http://test.yunhao.space$1 permanent;
+}
+```
+然后重启一下nginx服务器  
+```
+systemctl restart nginx
+```
+然后重新访问这4个地址，看看是不是能够定向到`test.yunhao.space`  
+
+# nginx服务器http重定向到https
+然后去GitHub Page上边儿，把仓库设置，GitHub Pages 里那个Enforce Https勾选。然后等一会儿，然后访问，发现可以访问到。  
+所以没什么问题。  
