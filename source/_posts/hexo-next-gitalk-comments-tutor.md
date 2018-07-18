@@ -15,13 +15,13 @@ Gitalk和Gitment一样，是利用GitHub的Issue功能。移动端适配比Gitme
 
 # 新建OAuth应用
 登陆GitHub，然后点击头像，然后Settings，Developer settings。如下：  
-![Developer settings](/images/hexo-next-gitalk-comments-tutor/1.png)
+![Developer settings](http://images.yunhao.space/pica/hexo-next-gitalk-comments-tutor/1.png)
 然后，点击OAuth Apps，New OAuth App，如下：  
-![新建OAuth应用](/images/hexo-next-gitalk-comments-tutor/2.png)
+![新建OAuth应用](http://images.yunhao.space/pica/hexo-next-gitalk-comments-tutor/2.png)
 填写下面红框的内容。Application Name随便起，Homepage URL是你需要用这个应用的地址，就是博客的地址，callback URL是你的回调地址，一般填你的博客地址。如果你在调试的话，可以填localhost  
-![填写内容](/images/hexo-next-gitalk-comments-tutor/3.png)
+![填写内容](http://images.yunhao.space/pica/hexo-next-gitalk-comments-tutor/3.png)
 然后，你会跳到这个界面。client id和secret这两个有用。记得不要给别人  
-![ID和Secret](/images/hexo-next-gitalk-comments-tutor/4.png)
+![ID和Secret](http://images.yunhao.space/pica/hexo-next-gitalk-comments-tutor/4.png)
 
 # 添加代码
 在主题中添加代码，我是强迫症，秉着对NexT主题代码最小的破坏。而且最好在NexT主题中该加代码的地方加。  

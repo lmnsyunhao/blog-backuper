@@ -12,17 +12,17 @@ date: 2018-07-13 22:08:18
 
 # 创建分区
 首先打开磁盘管理，右键单击屏幕左下角windows徽。然后点击磁盘管理。如下：  
-![打开磁盘管理](/images/windows-disk-manager-partition/1.png)
+![打开磁盘管理](http://images.yunhao.space/pica/windows-disk-manager-partition/1.png)
 然后点击需要分配的空间，即显示未分配的部分，然后右键单击，弹出框中点击新建简单卷。如下：  
-![右键点击](/images/windows-disk-manager-partition/2.png)
+![右键点击](http://images.yunhao.space/pica/windows-disk-manager-partition/2.png)
 然后出现对话框，点击下一步：如图：  
-![下一步](/images/windows-disk-manager-partition/3.png)
+![下一步](http://images.yunhao.space/pica/windows-disk-manager-partition/3.png)
 然后填写新建的分区的大小。1G=1024M，如下图：点击下一步  
-![划分大小](/images/windows-disk-manager-partition/4.png)
+![划分大小](http://images.yunhao.space/pica/windows-disk-manager-partition/4.png)
 然后给磁盘分配驱动器号。这个驱动器号分配了之后，不要乱改了。不然容易出现应用程序找不到，打不开的情况。点击下一步  
-![分配驱动器号](/images/windows-disk-manager-partition/5.png)
+![分配驱动器号](http://images.yunhao.space/pica/windows-disk-manager-partition/5.png)
 文件系统，一般都是NTFS，然后卷标这是是自己起的名字，如果不喜欢可以改。分配好之后，随时都可以改的。不会游应用程序找不到啊，这种情况。点击下一步  
-![卷标](/images/windows-disk-manager-partition/6.png)
+![卷标](http://images.yunhao.space/pica/windows-disk-manager-partition/6.png)
 然后出现这个界面，确认之后，点击完成。  
-![完成](/images/windows-disk-manager-partition/7.png)
+![完成](http://images.yunhao.space/pica/windows-disk-manager-partition/7.png)
 稍等一会儿，等格式化完成之后就创建完成了。  

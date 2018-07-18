@@ -17,13 +17,13 @@ windows10的C盘总是莫名其妙的变小，到底是什么在占用C盘？看
 # 用户目录移动
 windows10有了一个功能，能够将用户目录移动到别的目录。  
 在`C:\Users\yunhao`目录下，基本上大部分的文件夹都能够移动到别的目录，右键文件夹，打开属性。  
-![文件夹属性](/images/windows-c-partition-space-clean/attribute.png)
+![文件夹属性](http://images.yunhao.space/pica/windows-c-partition-space-clean/attribute.png)
 可以在位置选项下选择新的位置存放该文件夹，然后会弹出对话框问你是不是要将原文件夹的内容移动过去。选是就行。  
 
 # 设置更改存储位置
 windows10的设置也能够更改内容的默认存储位置。`windows键+I`唤出设置，`系统->存储`，可以看到右侧更改新内容的保存位置。  
-![设置->系统->存储](/images/windows-c-partition-space-clean/setting.png)
-![更改新内容的保存位置](/images/windows-c-partition-space-clean/path.png)
+![设置->系统->存储](http://images.yunhao.space/pica/windows-c-partition-space-clean/setting.png)
+![更改新内容的保存位置](http://images.yunhao.space/pica/windows-c-partition-space-clean/path.png)
 然后改到对应的目录就行了。  
 
 # 想法

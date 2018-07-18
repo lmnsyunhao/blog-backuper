@@ -20,17 +20,17 @@ LeanCloud能够给每篇博客统计访问量的工具。
 
 # 应用配置
 进入控制台后，我们先创建一个应用。点击创建应用  
-![创建应用](/images/hexo-leancloud-plugin-installation-tutor/1.png)
+![创建应用](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/1.png)
 然后弹出如下窗口：起名字，选择开发版，之后点击创建按钮  
-![创建应用](/images/hexo-leancloud-plugin-installation-tutor/2.png)
+![创建应用](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/2.png)
 创建完之后，我们看到下面这样。然后点击右上角的设置  
-![应用设置](/images/hexo-leancloud-plugin-installation-tutor/3.png)
+![应用设置](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/3.png)
 进入之后，我们点击存储，创建Class，弹出的对话框中名字要写`Counter`，必须写Counter是因为需要和NexT主题兼容。然后ACL权限选择无限制，不然容易统计次数不正常。最后点击创建Class按钮。  
-![创建Class](/images/hexo-leancloud-plugin-installation-tutor/4.png)
+![创建Class](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/4.png)
 创建Class的时候容易出现这个问题，如下图，刷新几次，就好了。  
-![问题](/images/hexo-leancloud-plugin-installation-tutor/5.png)
+![问题](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/5.png)
 现在获取应用ID和应用Key。设置，应用key。  
-![ID和Key](/images/hexo-leancloud-plugin-installation-tutor/6.png)
+![ID和Key](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/6.png)
 
 # 主题配置
 我们把LeanCloud的应用ID和应用Key写到`主题配置文件`中了，注意此时是`主题的配置文件config.yml`，找到文件中对应位置，并修改成如下：  
@@ -52,9 +52,9 @@ enable写成true。把`app_id`和`app_key`填上去。然后注意下面，如�
 
 # Counter类未初始化问题
 如果你看到这里了，应该就是发现，计数功能无效。可能会出现下面的问题。Counter类未初始化。  
-![Counter类未初始化](/images/hexo-leancloud-plugin-installation-tutor/7.png)
+![Counter类未初始化](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/7.png)
 然后它提示我们看F12的Console，显示信息如下：  
-![F12Console](/images/hexo-leancloud-plugin-installation-tutor/8.png)
+![F12Console](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/8.png)
 
 # hexo-leancloud-counter-security插件的安装与配置
 打开`主题配置文件`，确保刚刚的那个security已经设置为true。如下：  
@@ -95,17 +95,17 @@ deploy:
   - type: leancloud_counter_security_sync
 ```
 之后去LeanCloud查看_User表中是否已经添加刚才的用户，点击存储，_User，看是否多一条记录，如下：  
-![查看用户](/images/hexo-leancloud-plugin-installation-tutor/9.png)
+![查看用户](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/9.png)
 然后对Counter表设置权限，点击存储，Counter，其他，权限设置。如下：  
-![设置权限](/images/hexo-leancloud-plugin-installation-tutor/10.png)
+![设置权限](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/10.png)
 然后弹出对话框，点击add_fields，指定用户，输入刚才用户，点击添加，  
-![add_fields权限](/images/hexo-leancloud-plugin-installation-tutor/11.png)
+![add_fields权限](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/11.png)
 添加成功能够看到两处不同，用户ID已经上去了。  
-![添加成功](/images/hexo-leancloud-plugin-installation-tutor/12.png)
+![添加成功](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/12.png)
 接下来，我们同样对create进行指定用户。  
-![create权限](/images/hexo-leancloud-plugin-installation-tutor/13.png)
+![create权限](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/13.png)
 然后，对delete指定用户，这个注意，不添加任何用户。然后关闭。  
-![delete权限](/images/hexo-leancloud-plugin-installation-tutor/14.png)
+![delete权限](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/14.png)
 这就设置好了。每次运行`hexo d`的时候，会扫描所有的博客，对于新的博客，Counter表里没有记录的时候，会新建一条记录。如果博客的配置文件中username和password那块儿留空的话，hexo d的时候需要手动输入密码。  
 然后我们`hexo d`一下。看看效果。  
 
@@ -210,18 +210,18 @@ Error: Too many requests. [429 POST https://xtppdvlr.api.lncld.net/1.1/classes/C
 这里能够查看记录。  
 `time`就是阅读次数。这里可以直接改实现骚操作。  
 `title`，`url`和`createdAt`字段不要乱改，不然容易出现问题。  
-![查看记录](/images/hexo-leancloud-plugin-installation-tutor/22.png)
+![查看记录](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/22.png)
 
 # 安全中心保护
 点击设置，安全中心，Web安全域名。这个保证只有对应域名传过来的才有效，也就是说，别人用你的应用ID和应用Key是无效的。  
-![安全中心保护](/images/hexo-leancloud-plugin-installation-tutor/15.png)
+![安全中心保护](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/15.png)
 
 # 云引擎保护
 云引擎保护访客数量不被随意篡改。  
 点击云引擎，部署，在线编辑。  
-![在线编辑](/images/hexo-leancloud-plugin-installation-tutor/16.png)
+![在线编辑](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/16.png)
 然后点击创建函数。  
-![创建函数](/images/hexo-leancloud-plugin-installation-tutor/17.png)
+![创建函数](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/17.png)
 弹出的框中，选择Hook，beforeUpdate，Counter，函数内填写如下：  
 ```javascript
 var query = new AV.Query("Counter");
@@ -234,10 +234,10 @@ if (request.object.updatedKeys.indexOf('time') !== -1) {
 }
 ```
 然后点击保存。  
-![Counter函数定义](/images/hexo-leancloud-plugin-installation-tutor/18.png)
+![Counter函数定义](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/18.png)
 之后，我们能看到已经多了一个函数，然后点击上边的部署。  
-![部署](/images/hexo-leancloud-plugin-installation-tutor/19.png)
+![部署](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/19.png)
 弹出对话框，点击部署  
-![部署确认](/images/hexo-leancloud-plugin-installation-tutor/20.png)
+![部署确认](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/20.png)
 等待，直到部署完成，如下：  
-![部署完成](/images/hexo-leancloud-plugin-installation-tutor/21.png)
+![部署完成](http://images.yunhao.space/pica/hexo-leancloud-plugin-installation-tutor/21.png)

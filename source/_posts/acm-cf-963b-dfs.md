@@ -55,14 +55,14 @@ NO
 
 # 提示
 In the first example at first you have to remove the vertex with index $1$ (after that, the edges $(1, 2)$ and $(1, 4)$ are removed), then the vertex with index $2$ (and edges $(2, 3)$ and $(2, 5)$ are removed). After that there are no edges in the tree, so you can remove remaining vertices in any order.  
-![提示图片](/images/acm-cf-963b-dfs/note.png)
+![提示图片](http://images.yunhao.space/pica/acm-cf-963b-dfs/note.png)
 
 # 思路
 首先我们可以知道，n为偶数的情况下，一定是NO，因为n为偶数，总共有奇数条边，每次消除偶数条边，最后一定剩奇数，所以是NO。  
 所以我们只需考虑n是奇数情况。我们发现叶子结点的度一定是奇数，所以要想消除叶子节点，我们需要消除叶子节点的父亲。先消除靠近叶子节点的偶数度点，再往根节点的方向靠近，按此方法能够找到可行解。  
 我们消除某个节点的所有偶数度的子节点，剩下奇数度子节点要想消除，必须消除该节点。如果此时该节点的度是偶，那么可以消除，如果是奇数，还要消除该节点的父节点之后，才能消除该节点。这是一个递归的思路。用dfs。  
 我们用dfs遍历一棵树，遍历过程中用一个栈stk来保存节点之间的约束情况（某个节点的所有偶数度子节点消除之后，才可以消除当前节点，然后消除所有奇数度子节点。消除当前节点时，如果度为偶数，那么直接消除，否则就要等其父节点消除之后才可消除）。这个栈其实保存了消除过程中的拓扑序。  
-![例一](/images/acm-cf-963b-dfs/normal.png)
+![例一](http://images.yunhao.space/pica/acm-cf-963b-dfs/normal.png)
 比如上图，有21个节点。dfs过程如下，下面的序列显示的是栈stk的情况，左侧为栈底:  
 栈：1,2,5,12,13,14,5  
 5节点的所有偶度子节点都已经消除了，剩下的奇度子节点都在栈里。5节点再次入栈是因为保证拓扑序列正确。也就是说除了叶子结点之外的节点都需要，在其子节点遍历完毕之后，二次进栈。  
@@ -82,7 +82,7 @@ In the first example at first you have to remove the vertex with index $1$ (afte
 这就是结果了。5,14,13,12,6,17,16,15,3,9,1,4,11,10,2,8,21,20,7,19,18  
 思路大概就是这样  
 需要注意的是最后栈里面的要都输出来。然后注意16行要fa！=0。否则的话对于下图这种根节点只有一个孩子的会误判为叶子结点。  
-![例二](/images/acm-cf-963b-dfs/special.png)
+![例二](http://images.yunhao.space/pica/acm-cf-963b-dfs/special.png)
 
 # 代码
 ```c++
