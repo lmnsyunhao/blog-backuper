@@ -74,3 +74,38 @@ hexo clean
 hexo g
 hexo d
 ```
+
+# 多仓库的备份
+最近又倒腾了倒腾。然后把博客和博客备份和博客主题分成三个仓库存储。利用Git的submodule特性，使博客主题作为博客备份仓库的一个子模块。如果不知道submodule特性是什么的话，[Git Submodule 特性详解](/2018/07/18/git-submodule-learning-note/)  
+简要说下，首先我先把next的主题从theme-next的仓库fork过来了。然后新建了一个blog-backuper的仓库。  
+然后将本地的博客项目中的.git文件夹删除，将themes文件夹下的next另存一份，并从博客项目中移除。然后在博客项目根目录执行下面操作：  
+```
+cd blog
+git init
+git submodule add git@github.com:lmnsyunhao/hexo-theme-next.git themes/next
+git remote add origin git@github.com:lmnsyunhao/blog-backuper.git
+git add .
+git commit -m "reconstruction"
+git push -u origin master
+```
+然后重新修改主题。这种情况下不出意外，应该就重构好了。  
+以后每次备份的时候，如下：  
+```
+cd blog
+hexo cl & hexo g & hexo d
+cd themes/next
+git add .
+git commit -m "update"
+git push
+cd ../..
+git add .
+git commit -m "update"
+git push
+```
+恢复的时候，执行如下操作：  
+```
+git clone git@github.com:lmnsyunhao/blog-backuper.git --recursive
+git submodule foreach git pull
+npm install
+```
+然后就能正常的创作了。  
