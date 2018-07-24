@@ -1,6 +1,6 @@
 ---
 title: Hexo博客 GitHub仓库图床
-tags: [Hexo, GitHub]
+tags: [Hexo, GitHub, Nginx]
 categories: [Hexo]
 comments: true
 mathjax: false

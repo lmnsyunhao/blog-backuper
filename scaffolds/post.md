@@ -2,7 +2,7 @@
 title: {{ title }}
 date: {{ date }}
 tags: []
-categories: [未分类]
+categories: []
 comments: true
 mathjax: false
 ---
