@@ -256,7 +256,7 @@ pip install 暗影袜子们
 之后再配置一下sslocal的开机子启动，请见`sslocal配置systemd开机启动`一节。  
 
 # sslocal配置systemd开机启动
-在服务器端操作  
+在客户端操作  
 systemd配置文件一般存在于`/lib/systemd/system/`和`/etc/systemd/system/`这两个文件夹下，我们需要在`/etc/systemd/system`下创建配置文件。如下：如果创建过程中有权限问题，自觉用`sudo`  
 ```bash
 cd /etc/systemd/system
