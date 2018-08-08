@@ -107,41 +107,7 @@ ssserver -c /etc/暗影袜子们.json -d stop
 在客户端操作  
 windows的客户端点选“添加服务器”，填写“地址”、“端口”、“加密方法”和“密码”即可。其中“端口”、“加密方法”和“密码”与前面设置的服务器配置相同。  
 如果服务器支持IPv4和IPv6双栈，那么客户端实际可以配置两个服务器参数，其仅有“地址”不相同。对于IPv4，填写服务器的IPv4地址；对于IPv6，填写服务器的IPv6地址（末尾不用加/64，也不用写[]）  
-这里说下Ubuntu配置，Ubuntu的配置相对较麻烦。  
-首先需要在客户端安装暗影袜子们。安装方式与上面相似。  
-```bash
-sudo apt-get update
-sudo apt-get install python-pip
-pip install --upgrade pip
-pip install 暗影袜子们
-```
-当然，如果出现pip无法安装的问题，请看上面的那节，同样解决一下。  
-安完之后，在用户目录下新建一个`暗影袜子们.json`的文件。文件中如下填写：  
-```json
-{
-    "server":"上面配好的服务器的ip",
-    "server_port":8388,
-    "local_address":"127.0.0.1",
-    "local_port":1080,
-    "password":"自己设置的密码",
-    "timeout":300,
-    "method":"aes-256-cfb",
-    "fast_open":false
-}
-```
-其实这个文件和上面的那个配置文件好像一样。然后，启动下看看能否成功启动`sslocal -c 暗影袜子们.json`，如果能够正常启动，那么客户端这边儿就和服务器连上了。但是打开chrome，还是没法出去，比如油管网。这个时候，我们还需要配一下浏览器的代理。  
-我以chrome浏览器为例。讲解一下配置。有个东西叫做，[SwitchyOmega](https://www.switchyomega.com/download/)，点击链接下载对应的版本，如下  
-![SwitchyOmega](http://images.yunhao.space/pica/do-you-need-a-ladder/8.png)
-下载了之后应该是一个以crx后缀的文件。在浏览器的地址栏输入：`chrome://extensions`，将刚才下载的crx文件拖动到这里，会提示安装。如下  
-![安装](http://images.yunhao.space/pica/do-you-need-a-ladder/9.png)
-然后，等待安装成功会有提示，打开SwitchyOmega，配置一下代理。点击左侧`新建情景模式`，弹出对话框。`名称`随便起，`类型`选代理服务器，然后点击`创建`，如下图  
-![新建情景模式](http://images.yunhao.space/pica/do-you-need-a-ladder/10.png)
-然后点击新建的情景模式，`代理协议`选择SOCKS5，`代理服务器`填写127.0.0.1，`代理端口`填写1080。然后点击`应用选项`  
-![设置情景模式](http://images.yunhao.space/pica/do-you-need-a-ladder/11.png)
-然后再点击左侧的`auto switch`然后，勾选规则列表规则，后边选SS，就是你刚才配的情景模式，默认情景模式选择直接连接，规则列表格式选择AutoProxy规则列表地址填写`https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt`，然后点击立即更新情景模式。如下图：  
-![设置情景模式](http://images.yunhao.space/pica/do-you-need-a-ladder/12.png)
-这个时候再切换到`auto switch`就好了。访问一下`youtube.com`，应该就能成功了。  
-之后再配置一下sslocal的开机子启动，请见sslocal配置systemd开机启动一节。  
+对于Ubuntu的配置，请看本文`Ubuntu16.04 SS客户端 SwitchyOmega配置`一节。
 
 # 测试连通性
 为了保险起见，客户端选择IPv4连接服务器。  
@@ -251,6 +217,44 @@ ipv6可以连上服务器，但是ipv4死活连不上服务器。经过一番排
 然后，我就把这个droplet删了。新建了一个droplet，新建时候上传了ssh公钥，并选择了对应的公钥。然后，当然ssh的连接超时的问题就解决了。  
 然后照着我上边说的又走了一遍，ipv4连不上的问题也解决了。  
 
+# Ubuntu16.04 SS客户端 SwitchyOmega配置
+这里说下Ubuntu配置，Ubuntu的配置相对较麻烦。  
+首先需要在客户端安装暗影袜子们。安装方式与上面相似。  
+```bash
+sudo apt-get update
+sudo apt-get install python-pip
+pip install --upgrade pip
+pip install 暗影袜子们
+```
+当然，如果出现pip无法安装的问题，请看上面的那节，同样解决一下。  
+安完之后，在`/etc`目录下新建一个`暗影袜子们.json`的文件。文件中如下填写：  
+```json
+{
+    "server":"上面配好的服务器的ip",
+    "server_port":8388,
+    "local_address":"127.0.0.1",
+    "local_port":1080,
+    "password":"自己设置的密码",
+    "timeout":300,
+    "method":"aes-256-cfb",
+    "fast_open":false
+}
+```
+其实这个文件和上面的那个配置文件好像一样。然后，启动下看看能否成功启动`sslocal -c /etc/暗影袜子们.json`，如果能够正常启动，那么客户端这边儿就和服务器连上了。但是打开chrome，还是没法出去，比如油管网。这个时候，我们还需要配一下浏览器的代理。  
+我以chrome浏览器为例。讲解一下配置。有个东西叫做，[SwitchyOmega](https://www.switchyomega.com/download/)，点击链接下载，如下  
+![SwitchyOmega](http://images.yunhao.space/pica/do-you-need-a-ladder/8.png)
+下载了之后应该是一个以crx后缀的文件。在浏览器的地址栏输入：`chrome://extensions`，将刚才下载的crx文件拖动到这里，会提示安装。如下  
+![安装](http://images.yunhao.space/pica/do-you-need-a-ladder/9.png)
+然后，等待安装成功会有提示，打开SwitchyOmega，配置一下代理。点击左侧`新建情景模式`，弹出对话框。`名称`随便起，`类型`选代理服务器，然后点击`创建`，如下图  
+![新建情景模式](http://images.yunhao.space/pica/do-you-need-a-ladder/10.png)
+然后点击新建的情景模式，`代理协议`选择SOCKS5，`代理服务器`填写127.0.0.1，`代理端口`填写1080。然后点击`应用选项`  
+![设置情景模式](http://images.yunhao.space/pica/do-you-need-a-ladder/11.png)
+然后再点击左侧的`auto switch`然后，勾选规则列表规则，后边选SS，就是你刚才配的情景模式，默认情景模式选择直接连接，规则列表格式选择AutoProxy规则列表地址填写`https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt`，然后点击立即更新情景模式。然后点击应用选项。如下图：  
+![设置情景模式](http://images.yunhao.space/pica/do-you-need-a-ladder/12.png)
+这个时候再切换到`auto switch`就好了。访问一下`youtube.com`，应该就能成功了。  
+![auto switch](http://images.yunhao.space/pica/do-you-need-a-ladder/13.png)
+之后再配置一下sslocal的开机子启动，请见`sslocal配置systemd开机启动`一节。  
+
 # sslocal配置systemd开机启动
 在服务器端操作  
 systemd配置文件一般存在于`/lib/systemd/system/`和`/etc/systemd/system/`这两个文件夹下，我们需要在`/etc/systemd/system`下创建配置文件。如下：如果创建过程中有权限问题，自觉用`sudo`  
@@ -267,7 +271,7 @@ Description=sslocal
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/sslocal -c /home/yunhao/暗影袜子们.json
+ExecStart=/usr/local/bin/sslocal -c /etc/暗影袜子们.json
 ExecStop=/bin/kill -s TERM $MAINPID
 Restart=on-failure
 
