@@ -24,6 +24,7 @@ sudo apt-get install python-pip
 pip install --upgrade pip
 pip install 暗影袜子们
 ```
+如果你不想用这种方式安装SS，那么可以看`apt方式安装SS`一节。  
 
 # pip无法安装的问题
 在上边安装的时候，可能会出现下面的问题，如果出现了，就解决一下，没出现当然就不用管这一节。报错如下：  
@@ -39,6 +40,16 @@ from pip import __main__
 if __name__ == '__main__':
     sys.exit(__main__._main())
 ```
+
+# apt方式安装SS
+直接在命令行输入下面命令，如果有权限问题，注意加上sudo:  
+```bash
+sudo apt-get update
+sudo apt install 暗影袜子们
+```
+这样安装与上边有2点区别。
+第一，apt安装方式，ssserver的位置在`/usr/bin/ssserver`，而pip安装方法，ssserver在`/usr/local/bin/ssserver`  
+第二，apt安装方式，ssserver没法加`-d`参数。不过这不要紧，用`systemd`设置开机自动时候不需要-d参数。  
 
 # 配置IPv4连接
 在服务器端操作。  
@@ -150,7 +161,8 @@ systemctl start ssserver.service
 ```bash
 systemctl status ssserver.service
 ```
-如果显示running的话，那么就是配置成功了，然后设置一下开机启动  
+如果显示running的话，那么就是配置成功了，然后设置一下开机启动。  
+如果没有显示running，启动失败了的话，看下你们的`暗影袜子们.json`这个文件内容有没有写错，最好空格什么的不要少，也不要多。然后看下ssserver这个东西是不是在`/usr/local/bin/ssserver`这。用命令`which ssserver`看看这个是不是对的，有可能在`/usr/bin/ssserver`路径。然后把上边的那个文件`ssserver.service`中对应位置改成`/usr/bin/ssserver`。这样应该就能成了。  
 ```bash
 systemctl enable ssserver.service
 ```
@@ -219,7 +231,7 @@ ipv6可以连上服务器，但是ipv4死活连不上服务器。经过一番排
 然后，我就把这个droplet删了。新建了一个droplet，新建时候上传了ssh公钥，并选择了对应的公钥。然后，当然ssh的连接超时的问题就解决了。  
 然后照着我上边说的又走了一遍，ipv4连不上的问题也解决了。  
 
-# Ubuntu16.04 SS客户端 SwitchyOmega配置
+# Ubuntu16.04 SS客户端 浏览器 SwitchyOmega配置
 这里说下Ubuntu配置，Ubuntu的配置相对较麻烦。  
 首先需要在客户端安装暗影袜子们。安装方式与上面相似。  
 ```bash
@@ -256,6 +268,7 @@ pip install 暗影袜子们
 这个时候再切换到`auto switch`就好了。访问一下`youtube.com`，应该就能成功了。  
 ![auto switch](http://images.yunhao.space/pica/do-you-need-a-ladder/13.png)
 之后再配置一下sslocal的开机子启动，请见`sslocal配置systemd开机启动`一节。  
+PS:Windows上的chrome浏览器同样也可以加载这个插件，来增加规则，对于外边的网站走代理，里面的网站不走代理。配置过程相似。  
 
 # sslocal配置systemd开机启动
 在客户端操作  
@@ -296,3 +309,6 @@ systemctl status sslocal.service
 ```bash
 systemctl enable sslocal.service
 ```
+
+# 写在几个月后
+Digital Ocean把我的账号封了。于是，我换了一个VPS供应商，Vultr。配置方式都一样。  
