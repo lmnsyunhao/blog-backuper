@@ -1,7 +1,7 @@
 ---
 title: ACM 组合数学 母函数 生成函数 详解
-tags: [ACM, 组合数学, 母函数]
-categories: [ACM, 组合数学, 母函数]
+tags: [ACM, 数学, 组合数学, 母函数]
+categories: [数学, 组合数学]
 comments: true
 mathjax: true
 date: 2018-06-05 13:50:20

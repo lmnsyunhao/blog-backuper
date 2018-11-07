@@ -1,7 +1,7 @@
 ---
 title: ACM POJ 2342 题解 树形DP
 tags: [ACM, POJ, DP, 树形DP]
-categories: [ACM, DP, 树形DP]
+categories: [ACM, DP]
 comments: true
 mathjax: true
 date: 2018-06-10 00:31:47

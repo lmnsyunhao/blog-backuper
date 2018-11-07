@@ -1,7 +1,7 @@
 ---
 title: ACM CodeForces 963 B 题解 DFS
 tags: [ACM, CodeForces, 搜索, DFS]
-categories: [ACM, 搜索, DFS]
+categories: [ACM, 搜索]
 comments: true
 mathjax: true
 date: 2018-06-09 22:01:07

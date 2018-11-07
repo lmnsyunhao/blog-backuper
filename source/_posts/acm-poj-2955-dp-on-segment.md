@@ -1,7 +1,7 @@
 ---
 title: ACM POJ 2955 题解 区间DP
 tags: [ACM, POJ, DP, 区间DP]
-categories: [ACM, DP, 区间DP]
+categories: [ACM, DP]
 comments: true
 mathjax: true
 date: 2018-06-10 23:57:07

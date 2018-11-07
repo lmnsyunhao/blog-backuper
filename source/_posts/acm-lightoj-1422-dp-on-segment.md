@@ -1,7 +1,7 @@
 ---
 title: ACM LightOJ 1422 题解 区间DP
 tags: [ACM, LightOJ, DP, 区间DP]
-categories: [ACM, DP, 区间DP]
+categories: [ACM, DP]
 comments: true
 mathjax: true
 date: 2018-06-14 15:19:43

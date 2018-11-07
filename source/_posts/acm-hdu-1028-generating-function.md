@@ -1,7 +1,7 @@
 ---
 title: ACM HDU 1028 题解 母函数 生成函数
 tags: [ACM, HDU, 组合数学, 母函数]
-categories: [ACM, 组合数学, 母函数]
+categories: [ACM, 组合数学]
 comments: true
 mathjax: true
 date: 2018-06-05 13:29:48

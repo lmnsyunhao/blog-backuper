@@ -1,7 +1,7 @@
 ---
 title: ACM HDU 2089 题解 数位DP
 tags: [ACM, HDU, DP, 数位DP]
-categories: [ACM, DP, 数位DP]
+categories: [ACM, DP]
 comments: true
 mathjax: true
 date: 2018-06-17 16:34:42

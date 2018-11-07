@@ -1,7 +1,7 @@
 ---
 title: ACM CodeForces 873 B 题解 前缀和
-tags: [ACM, CodeForces, 基础题, 前缀和]
-categories: [ACM, 基础题, 前缀和]
+tags: [ACM, CodeForces, 基础题]
+categories: [ACM, 基础题]
 comments: true
 mathjax: true
 date: 2018-06-07 23:49:23

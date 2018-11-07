@@ -1,7 +1,7 @@
 ---
 title: ACM HDU 2844 题解 多重背包
 tags: [ACM, HDU, DP, 背包问题]
-categories: [ACM, DP, 背包问题]
+categories: [ACM, DP]
 comments: true
 mathjax: true
 date: 2018-06-05 12:53:49
