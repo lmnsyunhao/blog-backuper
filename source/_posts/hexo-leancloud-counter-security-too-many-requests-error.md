@@ -6,6 +6,8 @@ comments: true
 mathjax: false
 date: 2018-06-29 13:05:13
 ---
+> 【该问题可能已修复，以下为原文】  
+
 这个插件吧，有点儿不完美，给他改了改，不完美的地方就是，leancloud那边儿没法短时间内接受太多请求。原因是我用的是免费版的，有限制，而hexo-leancloud-counter-security 插件每次发太多无用请求，总是会报429错误，我就给源代码改了改。  
 
 <!-- more -->
