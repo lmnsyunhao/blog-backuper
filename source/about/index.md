@@ -8,7 +8,7 @@ date: 2018-05-17 17:15:47
 Hi, i m a new boy!
 
 # RSS订阅
-[点我订阅](atom.xml)  
+[点我订阅](https://yunhao.space/atom.xml)  
 
 # Social
 [GitHub](https://github.com/lmnsyunhao)  
