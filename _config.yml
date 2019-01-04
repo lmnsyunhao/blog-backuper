@@ -127,6 +127,3 @@ gitalk:
   admin: lmnsyunhao
   client_id: 
   client_secret: 
-  gitalk_css: //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css
-  gitalk_js: //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js
-  md5: //cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js

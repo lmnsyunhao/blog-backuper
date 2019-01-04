@@ -104,7 +104,7 @@ git push
 ```
 恢复的时候，执行如下操作：  
 ```
-git clone git@github.com:lmnsyunhao/blog-backuper.git --recursive
+git clone git@github.com:lmnsyunhao/blog-backuper.git
 git submodule foreach git pull
 npm install
 ```
