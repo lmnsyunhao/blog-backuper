@@ -12,7 +12,7 @@ date: 2018-06-20 22:09:21
 
 # 映射
 请将本文中所有的“暗影袜子们”替换成如下字眼
-![暗影袜子](http://images.yunhao.space/pica/do-you-need-a-ladder/socks.png)
+![暗影袜子](https://images.yunhao.space/pica/do-you-need-a-ladder/socks.png)
 
 # 安装SS
 在服务器端操作。  
@@ -174,19 +174,19 @@ systemctl enable ssserver.service
 配置这个的目的是让VPS和本地间走ipv6流量，然后系统代理模式选择全局代理，也就是说让所有的网络访问都走VPS。这样的话，也就是说所有的网络都走ipv6。这种情况下会有一些问题。有的软件不支持用前面这种形式访问网络。这个时候我们就需要一个叫做Proxifier的软件来给这些软件搞一下，让他们也能正常了。因为都是ipv6，所以就免流量了，而且不用登录校园网，这就是我们要的效果。  
 首先，VPS那边得是ipv6能够访问的，就是配好了上边说的ipv6连接，其次，本地也需要有ipv6的地址。二者缺一不可。然后。配置一下Proxifier。配置方法如下：  
 打开Proxifier，然后Profile，Proxy Servers，点击右侧Add。  
-![1](http://images.yunhao.space/pica/do-you-need-a-ladder/1.png)
+![1](https://images.yunhao.space/pica/do-you-need-a-ladder/1.png)
 如下这样添加。点击确定。  
-![2](http://images.yunhao.space/pica/do-you-need-a-ladder/2.png)
+![2](https://images.yunhao.space/pica/do-you-need-a-ladder/2.png)
 添加之后如下图：  
-![3](http://images.yunhao.space/pica/do-you-need-a-ladder/3.png)
+![3](https://images.yunhao.space/pica/do-you-need-a-ladder/3.png)
 打开，Profile，Proxification Rules。  
-![4](http://images.yunhao.space/pica/do-you-need-a-ladder/4.png)
+![4](https://images.yunhao.space/pica/do-you-need-a-ladder/4.png)
 如下设置  
-![5](http://images.yunhao.space/pica/do-you-need-a-ladder/5.png)
+![5](https://images.yunhao.space/pica/do-you-need-a-ladder/5.png)
 点击Profile，Name Resolution：  
-![6](http://images.yunhao.space/pica/do-you-need-a-ladder/6.png)
+![6](https://images.yunhao.space/pica/do-you-need-a-ladder/6.png)
 如下设置：  
-![7](http://images.yunhao.space/pica/do-you-need-a-ladder/7.png)
+![7](https://images.yunhao.space/pica/do-you-need-a-ladder/7.png)
 这个时候，注销校园网络登陆。然后看看行不行？如果qq能正常使用，说明大功告成了。下次再使用的时候，ipv6连接+Proxifier都打开，就能够免流量了。  
 我用的是有线连接的校园网（没登录），没测试无线能不能用，不过如果无线连接的时候，本地有ipv6地址的话，应该就能用。  
   
@@ -256,17 +256,17 @@ pip install 暗影袜子们
 ```
 其实这个文件和上面的那个配置文件好像一样。然后，启动下看看能否成功启动`sslocal -c /etc/暗影袜子们.json`，如果能够正常启动，那么客户端这边儿就和服务器连上了。但是打开chrome，还是没法出去，比如油管网。这个时候，我们还需要配一下浏览器的代理。  
 我以chrome浏览器为例。讲解一下配置。有个东西叫做，[SwitchyOmega](https://www.switchyomega.com/download/)，点击链接下载，如下  
-![SwitchyOmega](http://images.yunhao.space/pica/do-you-need-a-ladder/8.png)
+![SwitchyOmega](https://images.yunhao.space/pica/do-you-need-a-ladder/8.png)
 下载了之后应该是一个以crx后缀的文件。在浏览器的地址栏输入：`chrome://extensions`，将刚才下载的crx文件拖动到这里，会提示安装。如下  
-![安装](http://images.yunhao.space/pica/do-you-need-a-ladder/9.png)
+![安装](https://images.yunhao.space/pica/do-you-need-a-ladder/9.png)
 然后，等待安装成功会有提示，打开SwitchyOmega，配置一下代理。点击左侧`新建情景模式`，弹出对话框。`名称`随便起，`类型`选代理服务器，然后点击`创建`，如下图  
-![新建情景模式](http://images.yunhao.space/pica/do-you-need-a-ladder/10.png)
+![新建情景模式](https://images.yunhao.space/pica/do-you-need-a-ladder/10.png)
 然后点击新建的情景模式，`代理协议`选择SOCKS5，`代理服务器`填写127.0.0.1，`代理端口`填写1080。然后点击`应用选项`  
-![设置情景模式](http://images.yunhao.space/pica/do-you-need-a-ladder/11.png)
+![设置情景模式](https://images.yunhao.space/pica/do-you-need-a-ladder/11.png)
 然后再点击左侧的`auto switch`然后，勾选规则列表规则，后边选SS，就是你刚才配的情景模式，默认情景模式选择直接连接，规则列表格式选择AutoProxy规则列表地址填写`https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt`，然后点击立即更新情景模式。然后点击应用选项。如下图：  
-![设置情景模式](http://images.yunhao.space/pica/do-you-need-a-ladder/12.png)
+![设置情景模式](https://images.yunhao.space/pica/do-you-need-a-ladder/12.png)
 这个时候再切换到`auto switch`就好了。访问一下`youtube.com`，应该就能成功了。  
-![auto switch](http://images.yunhao.space/pica/do-you-need-a-ladder/13.png)
+![auto switch](https://images.yunhao.space/pica/do-you-need-a-ladder/13.png)
 之后再配置一下sslocal的开机子启动，请见`sslocal配置systemd开机启动`一节。  
 PS:Windows上的chrome浏览器同样也可以加载这个插件，来增加规则，对于外边的网站走代理，里面的网站不走代理。配置过程相似。  
 

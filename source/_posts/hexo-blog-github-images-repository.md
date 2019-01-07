@@ -42,7 +42,7 @@ git push -u origin master
 
 # 修改博文图片地址
 这个比较简单，用Notepad++或者是sublime什么的，文件夹内搜索，比如搜`](/images/`这个，然后全部替换一下。具体怎么搜索，我就不管了。  
-反正就是做如下替换。将`[图](/images/folder/1.png)`替换成`[图](http://images.yunhao.space/pica/folder/1.png`  
+反正就是做如下替换。将`[图](/images/folder/1.png)`替换成`[图](https://images.yunhao.space/pica/folder/1.png`  
 如果没有域名的话，那么那个images.yunhao.space就要替换成你的服务器ip地址了。  
 
 # 配置nginx重写

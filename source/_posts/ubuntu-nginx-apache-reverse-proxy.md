@@ -185,5 +185,5 @@ sudo systemctl stop apache2
 ```
 这个时候，我们再访问，`http://localhost/index.php`。我们会发现，还是解析不了，是因为`apache`关闭的原因了。所以，这个真的是`apache`处理的`php`文件。
 当然，我们也可以通过，界面显示内容的server API 来判断是谁解析的`php`文件。  
-![phpinfo Server API](http://images.yunhao.space/pica/ubuntu-nginx-apache-reverse-proxy/phpinfo-server-api.png)
+![phpinfo Server API](https://images.yunhao.space/pica/ubuntu-nginx-apache-reverse-proxy/phpinfo-server-api.png)
 记得将`nginx`和`apache`都设置一下开机启动。

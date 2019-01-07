@@ -79,25 +79,25 @@ window.location.href = prtc + "://" + domain + target;
 ```
 然后，将新增文件add, commit并push到github上master分支。  
 然后，开启test项目的GitHub Pages服务。如下：点击settings，然后往下滚，到GitHub Pages，然后选master，并保存。  
-![开启GitHub Pages服务](http://images.yunhao.space/pica/github-blog-multiple-domain-bundling-issue/2.png)
-![开启GitHub Pages服务](http://images.yunhao.space/pica/github-blog-multiple-domain-bundling-issue/3.png)
+![开启GitHub Pages服务](https://images.yunhao.space/pica/github-blog-multiple-domain-bundling-issue/2.png)
+![开启GitHub Pages服务](https://images.yunhao.space/pica/github-blog-multiple-domain-bundling-issue/3.png)
 等会儿，然后测试一下，应该就能定向了。  
 
 # 域名注册商重定向
 有点域名注册商提供了重定向服务，比如GoDaddy，腾讯云。腾讯云的重定向，如下图：  
-![腾讯云重定向](http://images.yunhao.space/pica/github-blog-multiple-domain-bundling-issue/1.png)
+![腾讯云重定向](https://images.yunhao.space/pica/github-blog-multiple-domain-bundling-issue/1.png)
 显性URL类型就是301重定向服务，不过大家也从上边的弹窗看到了，有些限制。所以，我在GoDaddy上边找到了重定向服务。  
 因为我的域名就是在GoDaddy上边买的。所以我就直接设置了。我看了看，GoDaddy上边好像不能接管别的域名注册商处注册的域名。如果你是GoDaddy买的域名，那么恭喜你了。这个方法，你可以看一看，否则的话你就得看看自己的域名注册商是否提供重定向服务了。  
 首先登陆GoDaddy，然后点击我的产品。  
-![我的产品](http://images.yunhao.space/pica/github-blog-multiple-domain-bundling-issue/4.png)
+![我的产品](https://images.yunhao.space/pica/github-blog-multiple-domain-bundling-issue/4.png)
 比如，我们要将`yunhao.life`重定向到`yunhao.space`，点击DNS  
-![DNS](http://images.yunhao.space/pica/github-blog-multiple-domain-bundling-issue/5.png)
+![DNS](https://images.yunhao.space/pica/github-blog-multiple-domain-bundling-issue/5.png)
 如果域名服务不在GoDaddy托管的话，那么首先点击下面的域名服务器，更改回默认的来，然后等更新好了，再继续。如果没出现这种情况，继续往下看：  
-![修改托管DNS服务](http://images.yunhao.space/pica/github-blog-multiple-domain-bundling-issue/6.png)
+![修改托管DNS服务](https://images.yunhao.space/pica/github-blog-multiple-domain-bundling-issue/6.png)
 找到转址这一块儿。上边域名转址是处理形如`yunhao.life`转到`yunhao.space`的，而子域名转址是`blog.yunhao.life`转到`yunhao.space`的，区别是二级域名是否为空。  
-![转址](http://images.yunhao.space/pica/github-blog-multiple-domain-bundling-issue/7.png)
+![转址](https://images.yunhao.space/pica/github-blog-multiple-domain-bundling-issue/7.png)
 然后下面是域名转址的修改方式：即从`yunhao.life`转到`yunhao.space`  
-![域名转址](http://images.yunhao.space/pica/github-blog-multiple-domain-bundling-issue/8.png)
+![域名转址](https://images.yunhao.space/pica/github-blog-multiple-domain-bundling-issue/8.png)
 如果想设置子域名转址，比如`blog.yunhao.life`转到`yunhao.space`，如下：  
-![域名转址](http://images.yunhao.space/pica/github-blog-multiple-domain-bundling-issue/9.png)
+![域名转址](https://images.yunhao.space/pica/github-blog-multiple-domain-bundling-issue/9.png)
 现在就设置完了，估计得等一会儿，才能生效。我等了半个多小时。这个域名注册商提供的转址服务不一定快。比如GoDaddy这个的确能转。但是速度有点儿慢。而且好像对于`yunhao.life/hello.html`转到`yunhao.space/hello.html`类似情况不支持。  
