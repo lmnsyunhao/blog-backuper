@@ -1,3 +1,2 @@
-layout/_custom/head.swig
-layout/_custom/sidebar.swig
+layout/_layout.swig
 _config.yml

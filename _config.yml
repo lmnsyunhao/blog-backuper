@@ -119,7 +119,6 @@ symbols_count_time:
   
 # 实时联系
 daovoice: true
-daovoice_app_id:
 
 # Gitalk评论
 gitalk:
@@ -127,5 +126,3 @@ gitalk:
   owner: lmnsyunhao
   repo: lmnsyunhao.github.io
   admin: lmnsyunhao
-  client_id: 
-  client_secret: 
