@@ -83,12 +83,12 @@ theme: next
 deploy:
   -
     type: leancloud_counter_security_sync
-  - 
-    type: git
-    repo: 
-      github: git@github.com:lmnsyunhao/lmnsyunhao.github.io.git
-      coding: git@git.coding.net:lmnsyunhao/lmnsyunhao.coding.me.git
-    branch: master
+  # - 
+  #   type: git
+  #   repo: 
+  #     github: git@github.com:lmnsyunhao/lmnsyunhao.github.io.git
+  #     coding: git@git.coding.net:lmnsyunhao/lmnsyunhao.coding.me.git
+  #   branch: master
   
 # 自动生成sitemap
 sitemap:

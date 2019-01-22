@@ -1,0 +1,53 @@
+language: node_js
+node_js: stable
+
+cache:
+  apt: true
+  directories:
+    - node_modules
+
+before_install:
+    - export TZ='Asia/Shanghai'
+
+# S: Build Lifecycle
+install:
+  - npm install
+  - npm install -g hexo-cli
+
+before_script:
+  - cd node_modules
+  - rm -rf ./hexo-leancloud-counter-security
+  - git clone https://${BF_REF}
+  - cd ./hexo-leancloud-counter-security
+  - rm -rf ./.git
+  - node helper.js > tmp
+  - cd ../..
+
+script:
+  - hexo cl
+  - hexo g
+  - hexo d
+
+after_script:
+  - rm -rf ./.deploy_git
+  - git clone https://${GH_REF} .deploy_git
+  - mv .deploy_git/.git/ ./public/
+  - cd ./public
+  - git config user.name "yunhao"
+  - git config user.email "851549562@qq.com"
+  - rm leancloud.memo
+  - rm leancloud_counter_security_urls.json
+  - git add .
+  - git commit -m "Travis CI Auto Push"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+  - git push --force --quiet "https://lmnsyunhao:${CO_TOKEN}@${CO_REF}" master:master
+# E: Build LifeCycle
+
+branches:
+  only:
+    - master
+env:
+ global:
+   - GH_REF: github.com/lmnsyunhao/lmnsyunhao.github.io.git
+   - CO_REF: git.coding.net/lmnsyunhao/lmnsyunhao.coding.me.git
+   - BF_REF: github.com/lmnsyunhao/hexo-leancloud-counter-security.git
