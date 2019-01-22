@@ -1,4 +1,5 @@
 language: node_js
+
 node_js: stable
 
 cache:
@@ -15,12 +16,15 @@ install:
   - npm install -g hexo-cli
 
 before_script:
+  # Install Custmized Module
   - cd node_modules
   - rm -rf ./hexo-leancloud-counter-security
   - git clone https://${BF_REF}
   - cd ./hexo-leancloud-counter-security
   - rm -rf ./.git
+  # Get Info
   - node helper.js > tmp
+  # Back To Blog Base Directory
   - cd ../..
 
 script:
@@ -29,14 +33,18 @@ script:
   - hexo d
 
 after_script:
+  # Get Commit History
   - rm -rf ./.deploy_git
   - git clone https://${GH_REF} .deploy_git
   - mv .deploy_git/.git/ ./public/
+  # Set Commit User Info
   - cd ./public
   - git config user.name "yunhao"
   - git config user.email "851549562@qq.com"
+  # Remove Uselessful Files
   - rm leancloud.memo
   - rm leancloud_counter_security_urls.json
+  # Sync To Pages Repositories
   - git add .
   - git commit -m "Travis CI Auto Push"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
