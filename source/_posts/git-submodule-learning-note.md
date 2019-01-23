@@ -94,6 +94,10 @@ git submodule update
 ```
 git merge <commit id> master
 ```
+几个月之后，我发现其实**大部分情况**，好像直接checkout分支就好了。  
+```
+git checkout master
+```
 
 # 删除子项目
 不支持命令删除子项目，需要手动删除。  

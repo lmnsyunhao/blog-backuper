@@ -104,8 +104,9 @@ git push
 ```
 恢复的时候，执行如下操作：  
 ```
-git clone git@github.com:lmnsyunhao/blog-backuper.git
-git submodule foreach git pull
+git clone git@github.com:lmnsyunhao/blog-backuper.git blog --recursive
+cd blog
+git submodule foreach git checkout master
 npm install
 ```
 然后就能正常的创作了。  
