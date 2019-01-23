@@ -44,6 +44,7 @@ after_script:
   # Remove Uselessful Files
   - rm leancloud.memo
   - rm leancloud_counter_security_urls.json
+  - rm js/custom.swig
   # Sync To Pages Repositories
   - git add .
   - git commit -m "Travis CI Auto Push"
