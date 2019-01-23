@@ -44,7 +44,7 @@
         id: md5(location.pathname),
         distractionFreeMode: 'true'
       });
-      $("#main>.main-inner:first>.content-wrap:first").append("<div id='comments' class='comments' style='opacity:1'></div>");
+      $("#main>.main-inner:first>.content-wrap:first").append("<div id='comments' class='comments' style='opacity:1;padding-top:0px;'></div>");
       gitalk.render('comments');
     }
   </script>
