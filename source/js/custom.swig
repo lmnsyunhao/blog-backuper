@@ -5,7 +5,6 @@
     appId: "{{ theme.leancloud_visitors.app_id }}",
     appKey: "{{ theme.leancloud_visitors.app_key }}"
   });
-
   var loadcomponent = function(componentname, callback){
     query = new AV.Query('Key');
     query.equalTo("AppName", componentname);
@@ -20,10 +19,9 @@
 {% if config.daovoice %}
   <script>
     var loaddaovoice = function(data){
-      daovoiceappid = data.AppKey;
-      (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/"+daovoiceappid+".js","daovoice")
+      (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/"+data.AppKey+".js","daovoice")
       daovoice('init', {
-          app_id: daovoiceappid
+          app_id: data.AppKey
         });
       daovoice('update');
     }
@@ -37,26 +35,17 @@
   <script src="{{ theme.vendors.md5 }}"></script>
   <script>
     var loadgitalk = function(data){
-      var gitalkclientidgithubstream=data.AppID;
-      var gitalksecretgithubstream=data.AppKey;
-      var gitalk = new Gitalk({
-        clientID: gitalkclientidgithubstream,
-        clientSecret: gitalksecretgithubstream,
+      gitalk = new Gitalk({
+        clientID: data.AppID,
+        clientSecret: data.AppKey,
         repo: '{{ config.gitalk.repo }}',
         owner: '{{ config.gitalk.owner }}',
         admin: '{{ config.gitalk.admin }}',
         id: md5(location.pathname),
         distractionFreeMode: 'true'
       });
-      var div = document.createElement('div');
-      div.setAttribute("id", "gitalk_comments");
-      div.setAttribute("class", "post-nav");
-      var bro = document.getElementById('posts').getElementsByTagName('article');
-      bro = bro[0].getElementsByClassName('post-block');
-      bro = bro[0].getElementsByTagName('footer');
-      bro = bro[0];
-      bro.appendChild(div);
-      gitalk.render('gitalk_comments');
+      $("#main>.main-inner:first>.content-wrap:first").append("<div id='comments' class='comments' style='opacity:1'></div>");
+      gitalk.render('comments');
     }
   </script>
 {% endif %}
@@ -77,30 +66,21 @@
   }
 </style>
 <script>
-  var ele = document.getElementById('header').getElementsByClassName('header-inner');
-  ele = ele[0].getElementsByClassName('site-brand-wrapper');
-  ele = ele[0].getElementsByClassName('site-meta');
-  ele = ele[0].getElementsByClassName('custom-logo-site-title');
-  ele = ele[0].getElementsByClassName('brand');
-  ele = ele[0].getElementsByClassName('site-title');
-  ele[0].style.paddingTop = "15px";
+  $('#header>.header-inner:first>.site-brand-wrapper:first>.site-meta:first>.custom-logo-site-title:first>.brand:first>.site-title:first').css({'paddingTop':'15px'});
 </script>
 
 {### Images Src Redirection ###}
 <script>
-  imgele = document.getElementsByTagName('img');
-  i = 0;
-  while(imgele[i]){
-    imgsrc = imgele[i].getAttribute('src');
-    domainIdx = imgsrc.indexOf('images.yunhao.space/pic');
-    if(domainIdx != -1){
-      picset = imgsrc.substr(domainIdx+23, 1);
-      picname = imgsrc.substr(domainIdx+24);
+  $('img').each(function(){
+    arr = $(this).attr('alt').split('#');
+    if(arr[1] && arr[1].indexOf('postpic/pic') != -1){
+      $(this).attr('alt', arr[0]);
+      picset = arr[1].substr(11, 1);
+      picname = arr[1].substr(12);
       targeturl = "https://raw.githubusercontent.com/lmnsyunhao/blog-pic"+picset+"/master"+picname;
-      imgele[i].setAttribute("src",targeturl);
+      $(this).attr('src', targeturl);
     }
-    i++;
-  }
+  })
 </script>
 
 {### Load Component ###}

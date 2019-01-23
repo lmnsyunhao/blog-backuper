@@ -18,13 +18,13 @@ date: 2017-03-29 21:14:36
 
 # 进入 Disqus Home 页
 应该在`disqus.com/home`
-![Disqus home 页](https://images.yunhao.space/pica/hexo-disqus-comments/disqusHome.png)
+![Disqus home 页#postpic/pica/hexo-disqus-comments/disqusHome.png]()
 之后点击右上角的齿轮，再点击 Add Disqus To Site。找到页面最下边的 Get Started 按钮。
-![GET STARTED](https://images.yunhao.space/pica/hexo-disqus-comments/getStarted.png)
+![GET STARTED#postpic/pica/hexo-disqus-comments/getStarted.png]()
 之后点击下面的install Disqus。
-![I want to install Disqus on my site](https://images.yunhao.space/pica/hexo-disqus-comments/disqusHome.png)
+![I want to install Disqus on my site#postpic/pica/hexo-disqus-comments/disqusHome.png]()
 注意WebsiteName，这个名字要用到配置文件中的。起一个你喜欢的。
-![Website Name](https://images.yunhao.space/pica/hexo-disqus-comments/websiteName.png)
+![Website Name#postpic/pica/hexo-disqus-comments/websiteName.png]()
 
 # 设置主题配置文件
 打开主题配置文件。找到如下的位置：

@@ -19,13 +19,13 @@ Windows10有快速启动这一个功能，就是为了让每次开机更快，�
 # 标准解决方法
 当然是关掉快速启动功能了。如何关闭呢？  
 打开控制面板  
-![控制面板](https://images.yunhao.space/pica/windows-pc-cannot-select-boot-device/controlpanel.png)
+![控制面板#postpic/pica/windows-pc-cannot-select-boot-device/controlpanel.png]()
 点击系统和安全  
-![系统和安全](https://images.yunhao.space/pica/windows-pc-cannot-select-boot-device/systemandsafe.png)
+![系统和安全#postpic/pica/windows-pc-cannot-select-boot-device/systemandsafe.png]()
 点击电源选项下的更改电源按钮的功能  
-![更改电源按钮功能](https://images.yunhao.space/pica/windows-pc-cannot-select-boot-device/battery.png)
+![更改电源按钮功能#postpic/pica/windows-pc-cannot-select-boot-device/battery.png]()
 先点击上边的更改当前不可用的设置，然后取消勾选启用快速启动，最后保存更改就OK了  
-![快速启动](https://images.yunhao.space/pica/windows-pc-cannot-select-boot-device/change.png)
+![快速启动#postpic/pica/windows-pc-cannot-select-boot-device/change.png]()
 
 # 暴力解决方法
 其实还有一种解决方法，但是只能当次适用。就是强制关机，强制关机后的第一次启动电脑可以进入选择启动项界面，之后就不行了。  

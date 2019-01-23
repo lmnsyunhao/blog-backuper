@@ -15,15 +15,15 @@ Preinstallation Environment，能够管理启动项；能够再你windows系统�
 
 # U启动
 安装过程很简单。打开官网，[U启动官网](http://www.uqdown.cn/)，然后点击下载UEFI版。如下图：   
-![U启动官网](https://images.yunhao.space/pica/burn-windows-preinstallation-environment-disk/1.png)
+![U启动官网#postpic/pica/burn-windows-preinstallation-environment-disk/1.png]()
 下载了之后，打开下载的exe，然后安装U启动。如下图：  
-![安装](https://images.yunhao.space/pica/burn-windows-preinstallation-environment-disk/2.png)
+![安装#postpic/pica/burn-windows-preinstallation-environment-disk/2.png]()
 安装完成之后，打开U启动，然后插入U盘，U盘的质量不要太差，要不然刻录出的盘容易出问题。如下图，选中你要制作的U盘，然后其余都是默认，点击开始制作  
-![制作](https://images.yunhao.space/pica/burn-windows-preinstallation-environment-disk/3.png)
+![制作#postpic/pica/burn-windows-preinstallation-environment-disk/3.png]()
 然后应该会提示会清空U盘的所有数据，点击确定。  
-![清除U盘](https://images.yunhao.space/pica/burn-windows-preinstallation-environment-disk/4.png)
+![清除U盘#postpic/pica/burn-windows-preinstallation-environment-disk/4.png]()
 等待制作完成  
-![正在制作](https://images.yunhao.space/pica/burn-windows-preinstallation-environment-disk/5.png)
+![正在制作#postpic/pica/burn-windows-preinstallation-environment-disk/5.png]()
 完成后会询问是否模拟启动，这个模拟启动没什么用处，就是检测这个是否刻录成功，一般都是成功的，就不用模拟启动了，选择否。  
-![模拟启动](https://images.yunhao.space/pica/burn-windows-preinstallation-environment-disk/6.png)
+![模拟启动#postpic/pica/burn-windows-preinstallation-environment-disk/6.png]()
 然后U启动 WinPE，就制作好了。这个U盘支持UEFI启动，当然Legacy也同样支持。  
