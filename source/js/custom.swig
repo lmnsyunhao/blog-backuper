@@ -117,3 +117,10 @@
 {### Change Book Mark Style ###}
 <style type="text/css">@media(max-width:1260px){.book-mark-link{display:none}}</style>
 
+{### Disable Ribbon Clicks ###}
+{% if theme.canvas_ribbon.enable %}
+<script>document.onclick=function(){}</script>
+{% endif %}
+
+{### Sidebar background transparent ###}
+<script>$('#sidebar').css({"background":"#eee0"})</script>
