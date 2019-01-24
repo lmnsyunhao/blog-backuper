@@ -106,3 +106,14 @@
     $(this).html("<i class='fa fa-tag'></i> " + tagName);
   })
 </script>
+
+{### Change Needmoreshare2 Icon ###}
+<script>
+  ele = $('#needsharebutton-float>span.btn');
+  ele.css({"color": "#fff","background": "#222"});
+  ele.on('mouseover', function(){$(this).css({"color": "#222","background": "#fff"});}).on('mouseleave', function(){$(this).css({"color": "#fff","background": "#222"});});
+</script>
+
+{### Change Book Mark Style ###}
+<style type="text/css">@media(max-width:1260px){.book-mark-link{display:none}}</style>
+
