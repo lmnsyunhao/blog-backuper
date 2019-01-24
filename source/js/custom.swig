@@ -44,8 +44,14 @@
         id: md5(location.pathname),
         distractionFreeMode: 'true'
       });
-      $("#main>.main-inner:first>.content-wrap:first").append("<div id='comments' class='comments' style='opacity:1;padding-top:0px;'></div>");
-      gitalk.render('comments');
+      {% if page.type == "comments" %}
+        $('#posts>.post-block:first').append("<div id='comments'></div>");
+        gitalk.render('comments');
+        $('#posts>.post-block:first>.post-header:first>.post-meta').remove();
+      {% else %}
+        $("#main>.main-inner:first>.content-wrap:first").append("<div id='comments' class='comments' style='opacity:1;padding-top:0px;'></div>");
+        gitalk.render('comments');
+      {% endif %}
     }
   </script>
 {% endif %}
@@ -91,4 +97,12 @@
   {% if page.comments and config.gitalk.enable %}
     loadcomponent("gitalk", loadgitalk);
   {% endif %}
+</script>
+
+{### Change Tag Icon ###}
+<script>
+  $("a[href^='/tags/'][rel='tag']").each(function(){
+    tagName = ($(this).html().split(' '))[1];
+    $(this).html("<i class='fa fa-tag'></i> " + tagName);
+  })
 </script>
