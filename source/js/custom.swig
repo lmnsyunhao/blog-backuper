@@ -112,6 +112,7 @@
   ele = $('#needsharebutton-float>span.btn');
   ele.css({"color": "#fff","background": "#222"});
   ele.on('mouseover', function(){$(this).css({"color": "#222","background": "#fff"});}).on('mouseleave', function(){$(this).css({"color": "#fff","background": "#222"});});
+  $('#needsharebutton-float').css({"z-index":"100000","bottom":"150px"});
 </script>
 
 {### Change Book Mark Style ###}
